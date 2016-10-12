@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Charity A Charity  category Flat bootstrap Responsive  Website Template| Contact :: w3layouts</title>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!--web-fonts-->
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<!--js-->
+<script src="js/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }>
+</script>
+<meta name="keywords" content="My Charity Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+<!-- //end-smoth-scrolling -->
+</head>
+<body>
+<!--header start here-->
+<div class="mothergrid">
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+				<a href="home/index"> <img src="images/logo.png" alt=""/> </a>
+			</div>
+			<span class="menu"> <img src="images/icon.png" alt=""/></span>
+			<div class="clear"> </div>
+			<div class="navg">
+				<ul class="res">
+					<li><a href="home/index">Accueil</a></li>
+					<li><a href="about/index">A propos</a></li>
+					<li><a href="events/index">Evénements</a></li>
+					<li><a class="active" href="contact/index">Contact</a></li>
+				</ul>
+				 <script>
+			                                                      $( "span.menu").click(function() {
+			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
+			                                                                                         // Animation complete.
+			                                                                                         });
+			                                                                                         });
+		                                                     </script>
+			</div>
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--heder end here-->
+<!--contact start here-->
+<div class="contact">
+	<div class="container">
+		<div class="contact-main">
+			<h3></h3>
+			
+		</div>
+	</div>
+</div>
+<div class="get">
+	<div class="container">
+		<div class="get-main">
+			  <h3>Contact</h3>
+			  <div class="col-md-6 get-left">
+				<form method="post" action="">
+					 <p>Name</p>
+					 <input type="text" placeholder="nom et prénom" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+					 <p>Email</p>
+					 <input type="text" placeholder="exemple@yahoo.fr" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+					 <p>Telephone</p>
+					 <input type="text" placeholder="xx xxx xxx" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+					 <input type="submit" value="Envoyez">
+				
+			  </div>
+			  <div class="col-md-6 get-right">
+			  	<h4>Message</h4>
+			  	<textarea   placeholder="tapez votre message ici" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/> </textarea>
+				</form>
+			  	<h3>Contact us</h3>
+					<p></p>
+					<p></p>
+					<p></p>	
+		 	  </div>
+		 	<div class="clearfix"> </div>	
+		</div>
+	</div>
+</div>
+<div class="map">
+	<div class="container">
+		 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25539.099936996277!2d10.170583136702108!3d36.85714277219302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34b48fc0d119%3A0x4672b577cf4bbe5d!2sCroissant+Rouge+Tunisien!5e0!3m2!1sen!2stn!4v1476228196670"  frameborder="0" style="border:0"></iframe>
+	</div>
+</div>
+<!--get touch end here-->
+<!--footer start here-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-main">
+			
+			<div class="footer-top">
+				<div class="col-md-4 footer-left">
+					<h3>Suivre</h3>
+				<ul>
+					<li><a href=""><span class="a"> </span></a></li>
+					<li><a href=""><span class="b"> </span></a></li>
+					<li><a href=""><span class="c"> </span></a></li>
+				</ul>
+				</div>
+				
+				<div class="col-md-4 footer-right">
+					<h3>Contact us</h3>
+					<p>Addresse : </p>
+					<p>tél : </p>
+				</div>
+			<div class="clearfix"> </div>
+			</div>
+			<div class="footer-bottom">
+				<p>2014 &copy Template by <a href="http://w3layouts.com/"> W3layouts </a> </p>
+			</div>
+		<div class="clearfix"> </div>
+		<script type="text/javascript">
+										$(document).ready(function() {
+											/*
+											var defaults = {
+									  			containerID: 'toTop', // fading element id
+												containerHoverID: 'toTopHover', // fading element hover id
+												scrollSpeed: 1200,
+												easingType: 'linear' 
+									 		};
+											*/
+											
+											$().UItoTop({ easingType: 'easeOutQuart' });
+											
+										});
+									</script>
+						<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		</div>
+	</div>
+</div>
+<!--/footer end here-->
+</body>
+</html>
