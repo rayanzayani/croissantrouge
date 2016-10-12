@@ -1,12 +1,12 @@
 <?php
 
 /* Site */
-$registry->setSetting ( 'BASE_URL', 'http://localhost/hotel/' );
+$registry->setSetting ( 'BASE_URL', 'http://localhost/croissant/' );
 $registry->setSetting ( 'TIMEZONE', 'Africa/Tunis' );
 
 /* Base */
 $registry->setSetting ( 'DB_HOST', 'localhost' );
-$registry->setSetting ( 'DB_NAME', 'hotel' );
+$registry->setSetting ( 'DB_NAME', 'croissant' );
 $registry->setSetting ( 'DB_USER', 'root' );
 $registry->setSetting ( 'DB_PASS', '' );
 $registry->setSetting ( 'DB_PREFIX', '' );

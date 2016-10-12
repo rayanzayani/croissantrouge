@@ -45,13 +45,6 @@ class InnovAdmin_Controller {
 			}
 		}
 		
-		if($this->_controller != 'reservationadmin' && $this->_controller != 'client' && $this->_controller != 'admin'&& $this->_controller != 'login'){
-			$user = Auth::data();
-			if ($user['type'] != "admin"){
-				Redirect::To('admin', 'dashboard');
-			}
-		}
-		
 	}
 	
 	public function afterAction() {
