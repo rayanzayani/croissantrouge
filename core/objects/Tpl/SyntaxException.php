@@ -4,6 +4,7 @@
 /**
  * Exception thrown when syntax error occurs.
  */
+
 class SyntaxException extends Exception1 {
 
     /**

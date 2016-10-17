@@ -57,6 +57,7 @@ class ORMWrapper extends ORM {
 	 *
 	 * @var string $_class_name
 	 */
+	
 	protected $_class_name;
 	
 	/**

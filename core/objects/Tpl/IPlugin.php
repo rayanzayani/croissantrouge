@@ -17,6 +17,7 @@
  *
  * Method can modify some properties. No return value is expected.
  */
+
 interface IPlugin
 {
 	/**

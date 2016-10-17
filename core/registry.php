@@ -39,6 +39,7 @@ class Registry {
 	}
 
 	public function storeCoreObjects() {
+
 		
 		// $this->setObject ( 'orm' );
 		$this->setObject ( 'tpl', 'template' );

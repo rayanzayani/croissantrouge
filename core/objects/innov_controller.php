@@ -1,5 +1,6 @@
 <?php
 class Innov_Controller {
+	
 	protected $_controller;
 	protected $_action;
 	protected $_tpl;

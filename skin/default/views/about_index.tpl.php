@@ -41,6 +41,7 @@
 					<li><a href="home/index">Accueil</a></li>
 					<li><a class="active" href="about/index">A propos</a></li>
 					<li><a href="events/index">Evénements</a></li>
+					<li><a href="vol/index">S'inscrire</a></li>
 					<li><a href="contact/index">Contact</a></li>
 				</ul>
 				 <script>
@@ -80,15 +81,15 @@
 				<div class="col-md-4 footer-left">
 					<h3>Suivre</h3>
 				<ul>
-					<li><a href=""><span class="a"> </span></a></li>
-					<li><a href=""><span class="b"> </span></a></li>
-					<li><a href=""><span class="c"> </span></a></li>
+					<li><a href="{$socials->facebook}"><span class="a"> </span></a></li>
+					<li><a href="{$socials->twitter}"><span class="b"> </span></a></li>
+					<li><a href="{$socials->google}"><span class="c"> </span></a></li>
 				</ul>
 				</div>
 				<div class="col-md-4 footer-right">
 					<h3>Contact us</h3>
-					<p>Addresse : </p>
-					<p>tél : </p>
+					<p>Addresse : {$info->addresse}</p>
+					<p>tél : {$info->tel}</p>
 				</div>
 			<div class="clearfix"> </div>
 			</div>

@@ -32,7 +32,7 @@
 	<div class="container">
 		<div class="header">
 			<div class="logo">
-				<a href="<?php echo static::$conf['base_url']; ?>index.html"> <img src="<?php echo static::$conf['base_url']; ?>/skin/default/public/images/logo.png" alt=""/> </a>
+				<a href="<?php echo static::$conf['base_url']; ?>home/index"> <img src="<?php echo static::$conf['base_url']; ?>/skin/default/public/images/logo.png" alt=""/> </a>
 			</div>
 			<span class="menu"> <img src="<?php echo static::$conf['base_url']; ?>/skin/default/public/images/icon.png" alt=""/></span>
 			<div class="clear"> </div>
@@ -41,6 +41,7 @@
 					<li><a href="<?php echo static::$conf['base_url']; ?>home/index">Accueil</a></li>
 					<li><a href="<?php echo static::$conf['base_url']; ?>about/index">A propos</a></li>
 					<li><a class="active" href="<?php echo static::$conf['base_url']; ?>events/index">Evénements</a></li>
+					<li><a href="<?php echo static::$conf['base_url']; ?>vol/index">S'inscrire</a></li>
 					<li><a href="<?php echo static::$conf['base_url']; ?>contact/index">Contact</a></li>
 				</ul>
 				 <script>
@@ -91,16 +92,16 @@
 				<div class="col-md-4 footer-left">
 					<h3>Suivre</h3>
 				<ul>
-					<li><a href="<?php echo static::$conf['base_url']; ?>#"><span class="a"> </span></a></li>
-					<li><a href="<?php echo static::$conf['base_url']; ?>#"><span class="b"> </span></a></li>
-					<li><a href="<?php echo static::$conf['base_url']; ?>#"><span class="c"> </span></a></li>
+					<li><a href="<?php echo $socials->facebook; ?>"><span class="a"> </span></a></li>
+					<li><a href="<?php echo $socials->twitter; ?>"><span class="b"> </span></a></li>
+					<li><a href="<?php echo $socials->google; ?>"><span class="c"> </span></a></li>
 				</ul>
 				</div>
 				
 				<div class="col-md-4 footer-right">
 					<h3>Contact us</h3>
-					<p>Addresse : </p>
-					<p>tél : </p>
+					<p>Addresse : <?php echo $info->addresse; ?></p>
+					<p>tél : <?php echo $info->tel; ?></p>
 				</div>
 			<div class="clearfix"> </div>
 			</div>

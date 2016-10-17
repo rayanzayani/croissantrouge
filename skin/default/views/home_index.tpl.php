@@ -41,15 +41,16 @@
 					<li><a class="active" href="home/index">Accueil</a></li>
 					<li><a href="about/index">A propos</a></li>
 					<li><a href="events/index">Evénements</a></li>
+					<li><a href="vol/index">S'inscrire</a></li>
 					<li><a href="contact/index">Contact</a></li>
 				</ul>
 				 <script>
-			                                                      $( "span.menu").click(function() {
-			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
-			                                                                                         // Animation complete.
-			                                                                                         });
-			                                                                                         });
-		                                                     </script>
+					  $( "span.menu").click(function() {
+														$(  "ul.res" ).slideToggle("slow", function() {
+														 // Animation complete.
+														 });
+														 });
+				 </script>
 			</div>
 		<div class="clearfix"> </div>
 		</div>
@@ -60,8 +61,8 @@
 <div class="banner">
 	<div class="container">
 		<div class="banner-main">
-			<h1>WELCOME  TO  MY  CHARITY</h1>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+			<h1>Bienvenue à notre site web</h1>
+			<p></p>
 		 <div class="bwn">
 			<a href="#"> Donate now </a>
 		</div>
@@ -78,16 +79,16 @@
 				<div class="col-md-4 footer-left">
 					<h3>Suivre</h3>
 				<ul>
-					<li><a href=""><span class="a"> </span></a></li>
-					<li><a href=""><span class="b"> </span></a></li>
-					<li><a href=""><span class="c"> </span></a></li>
+					<li><a href="{$socials->facebook}"><span class="a"> </span></a></li>
+					<li><a href="{$socials->twitter}"><span class="b"> </span></a></li>
+					<li><a href="{$socials->google}"><span class="c"> </span></a></li>
 				</ul>
 				</div>
 				
 				<div class="col-md-4 footer-right">
 					<h3>Contact us</h3>
-					<p>Addresse : </p>
-					<p>tél : </p>
+					<p>Addresse : {$info->addresse}</p>
+					<p>tél : {$info->tel}</p>
 				</div>
 			<div class="clearfix"> </div>
 			</div>

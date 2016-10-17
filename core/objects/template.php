@@ -31,6 +31,7 @@ class Template {
      *
      * @var \Rain\Tpl\PluginContainer
      */
+    
     protected static $plugins = null;
     // configuration
     protected static $conf = array(

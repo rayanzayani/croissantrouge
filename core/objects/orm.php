@@ -59,6 +59,7 @@
         // ------------------------ //
 
         // Class configuration
+        
         protected static $_default_config = array(
             'connection_string' => 'sqlite::memory:',
             'id_column' => 'id',

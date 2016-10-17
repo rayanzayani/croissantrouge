@@ -5,6 +5,7 @@ class login_Controller extends InnovAdmin_Controller {
 	public function action_index() {
 		
 	}
+
 	
 	public function action_login() {
 		$validator = new Validation();

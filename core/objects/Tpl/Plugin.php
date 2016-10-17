@@ -9,6 +9,7 @@ require_once __DIR__ . '/IPlugin.php';
  *   When a setter set_{optionname}() exists it is used to store the option value.
  *   Otherwise \InvalidArgumentException is thrown.
  */
+
 class Plugin implements IPlugin
 {
 	/**

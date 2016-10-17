@@ -162,7 +162,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
 <div class="inner-block">
-<!-- le traitement des données --> 
+	<!-- le traitement des données -->
+	<form method="post" action="volantaire/filter">
+	<div class="search-box">
+		<input type="text" placeholder="filtrer selon email" name="filtre"/><input type="submit" value=""/>
+	</div>
+	</form><br/>
+	<div>
+		<?php $msg = Flash::display(); ?><?php echo $msg; ?>
+	</div>
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="10%">Id</th>
+			<th width="10%">Cin</th>
+			<th width="10%">Nom</th>
+			<th width="10%">Prénom</th>
+			<th width="15%">Date de naissance</th>
+			<th width="10%">Email</th>
+			<th width="10%">N° tél</th>
+			<th width="5%">Modifier</th>
+			<th width="5%">Supprimer</th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php $counter1=-1;  if( isset($vol) && ( is_array($vol) || $vol instanceof Traversable ) && sizeof($vol) ) foreach( $vol as $key1 => $value1 ){ $counter1++; ?>
+		<tr>
+			<td><?php echo $value1->id; ?></td>
+			<td><?php echo $value1->cin; ?></td>
+			<td><?php echo $value1->nom; ?></td>
+			<td><?php echo $value1->prenom; ?></td>
+			<td><?php echo $value1->dateNaiss; ?></td>
+			<td><?php echo $value1->email; ?></td>
+			<td><?php echo $value1->tel; ?></td>
+			<td><center><a href="<?php echo static::$conf['base_url']; ?>volantaire/edit/<?php echo $value1->id; ?>" title="Modifier"><img src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/edit.png"/></a><center></td>
+			<td><center><a href="<?php echo static::$conf['base_url']; ?>volantaire/del/<?php echo $value1->id; ?>" title="Supprimer"><img src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/basket.png"/></a><center></td>
+		</tr>
+		<?php } ?>
+		</tbody>
+	</table>
 </div>
 </div>
 <!--copy rights start here-->

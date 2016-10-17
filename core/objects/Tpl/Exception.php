@@ -11,6 +11,7 @@ class Exception1 extends \Exception {
      */
     protected $templateFile = '';
 
+    
     /**
      * Handles path of template file with error.
      *

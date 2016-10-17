@@ -1,5 +1,6 @@
 <?php
 
+
 /* Site */
 $registry->setSetting ( 'BASE_URL', 'http://localhost/croissant/' );
 $registry->setSetting ( 'TIMEZONE', 'Africa/Tunis' );

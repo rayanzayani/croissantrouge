@@ -16,6 +16,7 @@ class PathReplace extends Plugin
 	 *
 	 * @param \ArrayAccess $context
 	 */
+	
 	public function beforeParse(\ArrayAccess $context){
 
 		// set variables

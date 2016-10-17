@@ -16,6 +16,7 @@ class Innov_Model {
 	 * @example Model::$auto_prefix_models = '\MyProject\MyModels\'; //Namespaces
 	 * @var string
 	 */
+	
 	public static $auto_prefix_models = null;
 
 	/**

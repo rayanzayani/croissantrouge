@@ -162,7 +162,45 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
 <div class="inner-block">
-<!-- le traitement des données --> 
+	<!-- le traitement des données -->
+	<form method="post" action="volantaire/filter">
+	<div class="search-box">
+		<input type="text" placeholder="filtrer selon email" name="filtre"/><input type="submit" value=""/>
+	</div>
+	</form><br/>
+	<div>
+		<?php $msg = Flash::display(); ?>{$msg}
+	</div>
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="10%">Id</th>
+			<th width="10%">Cin</th>
+			<th width="10%">Nom</th>
+			<th width="10%">Prénom</th>
+			<th width="15%">Date de naissance</th>
+			<th width="10%">Email</th>
+			<th width="10%">N° tél</th>
+			<th width="5%">Modifier</th>
+			<th width="5%">Supprimer</th>
+		</tr>
+		</thead>
+		<tbody>
+		{loop="$vol"}
+		<tr>
+			<td>{$value->id}</td>
+			<td>{$value->cin}</td>
+			<td>{$value->nom}</td>
+			<td>{$value->prenom}</td>
+			<td>{$value->dateNaiss}</td>
+			<td>{$value->email}</td>
+			<td>{$value->tel}</td>
+			<td><center><a href="volantaire/edit/{$value->id}" title="Modifier"><img src="edit.png"/></a><center></td>
+			<td><center><a href="volantaire/del/{$value->id}" title="Supprimer"><img src="basket.png"/></a><center></td>
+		</tr>
+		{/loop}
+		</tbody>
+	</table>
 </div>
 </div>
 <!--copy rights start here-->

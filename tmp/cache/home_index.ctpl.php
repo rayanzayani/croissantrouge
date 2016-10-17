@@ -41,15 +41,16 @@
 					<li><a class="active" href="<?php echo static::$conf['base_url']; ?>home/index">Accueil</a></li>
 					<li><a href="<?php echo static::$conf['base_url']; ?>about/index">A propos</a></li>
 					<li><a href="<?php echo static::$conf['base_url']; ?>events/index">Evénements</a></li>
+					<li><a href="<?php echo static::$conf['base_url']; ?>vol/index">S'inscrire</a></li>
 					<li><a href="<?php echo static::$conf['base_url']; ?>contact/index">Contact</a></li>
 				</ul>
 				 <script>
-			                                                      $( "span.menu").click(function() {
-			                                                                                        $(  "ul.res" ).slideToggle("slow", function() {
-			                                                                                         // Animation complete.
-			                                                                                         });
-			                                                                                         });
-		                                                     </script>
+					  $( "span.menu").click(function() {
+														$(  "ul.res" ).slideToggle("slow", function() {
+														 // Animation complete.
+														 });
+														 });
+				 </script>
 			</div>
 		<div class="clearfix"> </div>
 		</div>
@@ -60,8 +61,8 @@
 <div class="banner">
 	<div class="container">
 		<div class="banner-main">
-			<h1>WELCOME  TO  MY  CHARITY</h1>
-			<p>Lorem Ipsum is simply dummy text of the printing and typesetting.</p>
+			<h1>Bienvenue à notre site web</h1>
+			<p></p>
 		 <div class="bwn">
 			<a href="<?php echo static::$conf['base_url']; ?>#"> Donate now </a>
 		</div>
@@ -78,16 +79,16 @@
 				<div class="col-md-4 footer-left">
 					<h3>Suivre</h3>
 				<ul>
-					<li><a href="<?php echo static::$conf['base_url']; ?>"><span class="a"> </span></a></li>
-					<li><a href="<?php echo static::$conf['base_url']; ?>"><span class="b"> </span></a></li>
-					<li><a href="<?php echo static::$conf['base_url']; ?>"><span class="c"> </span></a></li>
+					<li><a href="<?php echo $socials->facebook; ?>"><span class="a"> </span></a></li>
+					<li><a href="<?php echo $socials->twitter; ?>"><span class="b"> </span></a></li>
+					<li><a href="<?php echo $socials->google; ?>"><span class="c"> </span></a></li>
 				</ul>
 				</div>
 				
 				<div class="col-md-4 footer-right">
 					<h3>Contact us</h3>
-					<p>Addresse : </p>
-					<p>tél : </p>
+					<p>Addresse : <?php echo $info->addresse; ?></p>
+					<p>tél : <?php echo $info->tel; ?></p>
 				</div>
 			<div class="clearfix"> </div>
 			</div>

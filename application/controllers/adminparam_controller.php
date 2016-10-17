@@ -12,7 +12,6 @@ class adminparam_Controller extends InnovAdmin_Controller {
 		$this->set ( 'utilisateur', $user );
 	}
 	
-	
 	public function action_update() {
 	$this->render = false;
 		$validator = new Validation ();

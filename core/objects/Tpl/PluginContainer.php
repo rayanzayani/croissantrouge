@@ -5,6 +5,7 @@ require_once __DIR__ . '/IPlugin.php';
 /**
  * Maintains template plugins and call hook methods.
  */
+
 class PluginContainer
 {
 	/**

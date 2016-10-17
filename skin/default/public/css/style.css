@@ -908,7 +908,41 @@ ul.popular-tag li a:hover {
 	margin-bottom: 10px;
 	outline: none;
 	color: #999;
-	width:80%
+	width:50%
+}
+.vol input[type="text"] {
+	font-size: 17px;
+	padding: 10px;
+	margin-bottom: 10px;
+	outline: none;
+	color: #999;
+	width:50%
+}
+.vol input[type="number"] {
+	font-size: 17px;
+	padding: 10px;
+	margin-bottom: 10px;
+	outline: none;
+	color: #999;
+	width:50%
+}
+.vol input[type="date"] {
+	font-size: 17px;
+	padding: 10px;
+	margin-bottom: 10px;
+	outline: none;
+	color: #999;
+	width:50%
+}
+.vol input[type="submit"] {
+	font-size: 14px;
+	font-weight: 400;
+	padding: 10px 44px;
+	color: #fff;
+	background: #9b242d;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }
 .subscribe input[type="submit"] {
 	font-size: 14px;
@@ -1657,6 +1691,9 @@ ul.popular-tag li a {
 .subscribe input[type="submit"] {
 	padding: 11px 20em;
 }
+	.vol {
+		width: 70%;
+	}
 .subscribe {
 	width: 95%;
 }

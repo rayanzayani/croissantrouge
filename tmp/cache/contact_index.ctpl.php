@@ -41,6 +41,7 @@
 					<li><a href="<?php echo static::$conf['base_url']; ?>home/index">Accueil</a></li>
 					<li><a href="<?php echo static::$conf['base_url']; ?>about/index">A propos</a></li>
 					<li><a href="<?php echo static::$conf['base_url']; ?>events/index">Evénements</a></li>
+					<li><a href="<?php echo static::$conf['base_url']; ?>vol/index">S'inscrire</a></li>
 					<li><a class="active" href="<?php echo static::$conf['base_url']; ?>contact/index">Contact</a></li>
 				</ul>
 				 <script>
@@ -95,7 +96,7 @@
 </div>
 <div class="map">
 	<div class="container">
-		 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25539.099936996277!2d10.170583136702108!3d36.85714277219302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd34b48fc0d119%3A0x4672b577cf4bbe5d!2sCroissant+Rouge+Tunisien!5e0!3m2!1sen!2stn!4v1476228196670"  frameborder="0" style="border:0"></iframe>
+		 <iframe src="<?php echo $info->url; ?>"  frameborder="0" style="border:0"></iframe>
 	</div>
 </div>
 <!--get touch end here-->
@@ -108,16 +109,16 @@
 				<div class="col-md-4 footer-left">
 					<h3>Suivre</h3>
 				<ul>
-					<li><a href="<?php echo static::$conf['base_url']; ?>"><span class="a"> </span></a></li>
-					<li><a href="<?php echo static::$conf['base_url']; ?>"><span class="b"> </span></a></li>
-					<li><a href="<?php echo static::$conf['base_url']; ?>"><span class="c"> </span></a></li>
+					<li><a href="<?php echo $socials->facebook; ?>"><span class="a"> </span></a></li>
+					<li><a href="<?php echo $socials->twitter; ?>"><span class="b"> </span></a></li>
+					<li><a href="<?php echo $socials->google; ?>"><span class="c"> </span></a></li>
 				</ul>
 				</div>
 				
 				<div class="col-md-4 footer-right">
 					<h3>Contact us</h3>
-					<p>Addresse : </p>
-					<p>tél : </p>
+					<p>Addresse : <?php echo $info->addresse; ?></p>
+					<p>tél : <?php echo $info->tel; ?></p>
 				</div>
 			<div class="clearfix"> </div>
 			</div>

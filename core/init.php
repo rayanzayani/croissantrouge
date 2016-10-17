@@ -34,6 +34,7 @@ if ($setting) {
 
 /* Templaite for admin */
 if (strpos ( $url, 'admin' ) !== false) {
+	
 	$registry->setSetting ( 'SKIN', 'admin' );
 }
 
