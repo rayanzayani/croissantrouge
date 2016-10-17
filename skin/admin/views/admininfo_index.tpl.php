@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
     <!-- Chartinator  -->
     <script src="js/chartinator.js" ></script>
-    
+    <!--geo chart-->
 
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
@@ -38,9 +38,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="left-content">
         <div class="mother-grid-inner">
             <!--header start here-->
-
             <div class="header-main">
-                <center><h1>Modification des données du volantaire</h1></center>
+                <center><h1>Informations du site</h1></center>
                 <div class="header-left">
                     <div class="logo-name">
                         <a href="admin/index">
@@ -99,29 +98,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--inner block start here-->
             <div class="inner-block">
                 <!-- le traitement des données -->
-                <form method="post" action="../../volantaire/addVol">
-                    <center>
-                        <label>Id du volantaire: {$vol->id}</label><br/>
-                        <input class="form-control" type="hidden" name="id" value="{$vol->id}"/><br/>
-                        <input class="form-control" type="number" name="cin" value="{$vol->cin}"/><br/>
-                        <input class="form-control" type="text" name="nom" value="{$vol->nom}"/><br/>
-                        <input class="form-control" type="text" name="prenom" value="{$vol->prenom}"/><br/>
-                        <input class="form-control" type="date" name="dateNaiss" value="{$vol->dateNaiss}"/><br/>
-                        <input class="form-control" type="text" name="email" value="{$vol->email}"/><br/>
-                        <input class="form-control" type="number" name="tel" value="{$vol->tel}"/><br/>
-                        <input class="btn btn-lg btn-success" type="submit" value="mettre à jour les données"/>
-                    </center>
+                <form method="post" action="update">
+                    <div>
+                        <?php $msg = Flash::display(); ?>{$msg}
+                    </div>
+                    <input class="form-control" type="text" value="{$info->addresse}" name="addresse" /><br/>
+                    <input class="form-control" type="number" value="{$info->tel}" name="tel" /><br/>
+                    <input class="form-control" type="text" value="{$info->url}" name="url" /><br/>
+                    <input class="btn btn-lg btn-success" type="submit" value="mettre à jour" />
                 </form>
-
             </div>
         </div>
-
+        <!--copy rights start here-->
+        <div class="copyrights">
+            <p>© 2016 Croissant rouge. All Rights Reserved</p>
+        </div>
+        <!--COPY rights end here-->
     </div>
-    <!--copy rights start here-->
-    <div class="copyrights">
-        <p>© 2016 Croissant rouge. All Rights Reserved</p>
-    </div>
-    <!--COPY rights end here-->
 </div>
 <!--slider menu-->
 <div class="sidebar-menu">

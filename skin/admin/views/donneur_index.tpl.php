@@ -27,71 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
      <!-- Chartinator  -->
     <script src="js/chartinator.js" ></script>
-    <script type="text/javascript">
-        jQuery(function ($) {
 
-            var chart3 = $('#geoChart').chartinator({
-                tableSel: '.geoChart',
-
-                columns: [{role: 'tooltip', type: 'string'}],
-         
-                colIndexes: [2],
-             
-                rows: [
-                    ['China - 2015'],
-                    ['Colombia - 2015'],
-                    ['France - 2015'],
-                    ['Italy - 2015'],
-                    ['Japan - 2015'],
-                    ['Kazakhstan - 2015'],
-                    ['Mexico - 2015'],
-                    ['Poland - 2015'],
-                    ['Russia - 2015'],
-                    ['Spain - 2015'],
-                    ['Tanzania - 2015'],
-                    ['Turkey - 2015']],
-              
-                ignoreCol: [2],
-              
-                chartType: 'GeoChart',
-              
-                chartAspectRatio: 1.5,
-             
-                chartZoom: 1.75,
-             
-                chartOffset: [-12,0],
-             
-                chartOptions: {
-                  
-                    width: null,
-                 
-                    backgroundColor: '#fff',
-                 
-                    datalessRegionColor: '#F5F5F5',
-               
-                    region: 'world',
-                  
-                    resolution: 'countries',
-                 
-                    legend: 'none',
-
-                    colorAxis: {
-                       
-                        colors: ['#679CCA', '#337AB7']
-                    },
-                    tooltip: {
-                     
-                        trigger: 'focus',
-
-                        isHtml: true
-                    }
-                }
-
-               
-            });                       
-        });
-    </script>
-<!--geo chart-->
 
 <!--skycons-icons-->
 <script src="js/skycons.js"></script>
@@ -196,6 +132,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li>
 					<a href="statistique/index"><span>Statistiques</span></a>
 		        </li><br/>
+				  <li>
+					  <a href="admininfo/index"><span>Infos du site</span></a>
+				  </li><br/>
 				<li>
 					<a href="login/logout"><span>Déconnexion</span></a>
 		        </li>

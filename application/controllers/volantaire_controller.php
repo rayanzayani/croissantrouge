@@ -44,8 +44,6 @@ class Volantaire_Controller extends InnovAdmin_Controller {
 	}
 
 	public function action_filter(){
-		$email = Input::get('filtre');
-		$vol = Innov_Model::factory ( 'Volantaire' )->raw_query('SELECT v.* FROM volantaire v where email like :filtre', array('filtre' => $email))->find_many();
-		$this->set ( 'vol', $vol );
+		
 	}
 }
