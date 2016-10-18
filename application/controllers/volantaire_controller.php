@@ -3,8 +3,13 @@
 class Volantaire_Controller extends InnovAdmin_Controller {
 
 	public function action_index() {
-		$vol = Innov_Model::factory('Volantaire')->find_many();
-		$this->set('vol',$vol);
+		/*$vol = Innov_Model::factory('Volantaire')->find_many();
+		$this->set('vol',$vol);*/
+		if(!empty($_POST)){
+			$email = Input::get('filtre');
+			$vol = Innov_Model::factory ( 'Volantaire' )->raw_query('SELECT v.* FROM volantaire v where v.email LIKE :email', array('email' => $email))->find_many();
+			$this->set ( 'vol', $vol );
+		}
 	}
 
 	public function action_del($id)
@@ -43,7 +48,4 @@ class Volantaire_Controller extends InnovAdmin_Controller {
 		Redirect::To ( 'volantaire', 'index' );
 	}
 
-	public function action_filter(){
-		
-	}
 }

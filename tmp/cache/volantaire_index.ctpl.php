@@ -99,14 +99,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--inner block start here-->
 <div class="inner-block">
 	<!-- le traitement des données -->
-	<form method="post" action="volantaire/filter">
+
+		<h3 style="color:#45C326; text-size:20px; text-align: center">
+			<?php $msg = Flash::display(); ?><?php echo $msg; ?>
+		</h3>
+	<form method="post" action="../volantaire/index">
 	<div class="search-box">
-		<input type="text" placeholder="filtrer selon email" name="filtre"/><input type="submit" value=""/>
+		<input type="text" placeholder="filtrer selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
 	</div>
 	</form><br/>
-	<div>
-		<?php $msg = Flash::display(); ?><?php echo $msg; ?>
-	</div>
+
 	<table class="table">
 		<thead>
 		<tr>

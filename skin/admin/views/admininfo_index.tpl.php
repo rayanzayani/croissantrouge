@@ -99,9 +99,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="inner-block">
                 <!-- le traitement des données -->
                 <form method="post" action="update">
-                    <div>
+                    <h3 style="color:#45C326; text-size:20px; text-align: center">
                         <?php $msg = Flash::display(); ?>{$msg}
-                    </div>
+                    </h3>
                     <input class="form-control" type="text" value="{$info->addresse}" name="addresse" /><br/>
                     <input class="form-control" type="number" value="{$info->tel}" name="tel" /><br/>
                     <input class="form-control" type="text" value="{$info->url}" name="url" /><br/>

@@ -58,19 +58,96 @@
 </div>
 <!--heder end here-->
 <!--banner start here-->
+<script type="text/javascript">
+
+
+    function verifLettre ()
+    {
+        if (event.keyCode < 97  || event.keyCode > 122)
+            event.returnValue = false;
+    }
+
+
+    function verifPhrase ()
+    {
+        if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+            event.returnValue = false;
+    }
+
+    function verifFloat ()
+    {
+
+        if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+    function verifInt ()
+    {
+
+        if(event.keyCode < 48 || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+
+    function verifPhonee ()
+    {
+        if(event.keyCode < 48 || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+    function verifMot ()
+    {
+        if(event.keyCode == 32)
+            event.returnValue = false;
+    }
+
+    function verifMail()
+
+    {
+        a = document.f.email.value;
+        valide1 = false;
+        for(var j=1;j<(a.length);j++){
+            if(a.charAt(j)=='@'){
+                if(j<(a.length-4)){
+                    for(var k=j;k<(a.length-2);k++){
+                        if(a.charAt(k)=='.') valide1=true;
+                    }
+                }
+            }
+        }
+
+        if(valide1==false)
+        {
+            var errorDiv1 = document.getElementById('error-message1');
+            errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+            return false;
+        }
+    }
+
+    function validate()
+    {
+        if(verifMail() == false)
+            return false;
+
+
+
+        return true;
+    }
+
+</script>
 <div class="banner">
     <div class="vol" align="center">
         <h1>Inscrivez-vous</h1><br/>
         <form method="post" action="../vol/ajoutVol">
-            <div>
+            <h3 style="color:#2FEC00; text-size:20px; text-align: center">
                 <?php $msg = Flash::display(); ?>{$msg}
-            </div>
-            <input type="number" name="cin" id="cin" placeholder="N° catre d'identité"/><br/>
-            <input type="text" name="nom" id="nom" placeholder="nom"/><br/>
-            <input type="text" name="prenom" id="prenom" placeholder="prénom"/><br/>
-            <input type="date" name="dateNaiss" id="dateNaiss" placeholder="jj/mm/yy"/><br/>
-            <input type="text" name="email" id="email" placeholder="exemple@yahoo.fr"/><br/>
-            <input type="number" name="tel" id="tel" placeholder="xx xxx xxx"/><br/>
+            </h3>
+            <input type="text" name="cin" id="cin" maxlength="8" minlength="8" placeholder="N° catre d'identité" onKeyPress="verifPhonee()" required="" title="n° de carte d'identité"/><br/>
+            <input type="text" name="nom" id="nom" placeholder="nom" maxlength="30" onKeyPress="verifPhrase()" required="" title="votre nom"/><br/>
+            <input type="text" name="prenom" id="prenom" maxlength="30" placeholder="prénom" onKeyPress="verifPhrase()" required="" title="votre prénom"/><br/>
+            <input type="date" name="dateNaiss" id="dateNaiss" placeholder="jj/mm/yy" required="" title="votre date de naissance"/><br/>
+            <input type="email" name="email" id="email" placeholder="exemple@yahoo.fr" required="" title="votre addresse mail"/><br/>
+            <input type="text" name="tel" id="tel" maxlength="8" minlength="8" placeholder="votre n° de téléphone" onKeyPress="verifPhonee()" required="" title="votre n° de téléphone"/><br/>
             <input type="submit" value="S'inscrire"/>
         </form>
     </div>

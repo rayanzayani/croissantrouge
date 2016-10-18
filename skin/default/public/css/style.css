@@ -55,7 +55,7 @@ span.menu {
 /*--header end here--*/
 /*--banner style start here--*/
 .banner{
-	background:url(../images/banner.jpg);
+	background:url(../images/charity.jpg);
 	min-height:550px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -70,12 +70,12 @@ span.menu {
 .banner-main h1{
 	font-size: 3em;
 	font-weight: 700;
-	color: #fff;
+	color: #C10B24;
 }
 .banner-main p{
-	font-size: 1.5em;
+	font-size: 2em;
 	font-weight: 300;
-	color: #fff;
+	color: #C10B24;
 	font-family: 'Roboto Slab', serif;
 }
 .bwn{
@@ -911,6 +911,14 @@ ul.popular-tag li a:hover {
 	width:50%
 }
 .vol input[type="text"] {
+	font-size: 17px;
+	padding: 10px;
+	margin-bottom: 10px;
+	outline: none;
+	color: #999;
+	width:50%
+}
+.vol input[type="email"] {
 	font-size: 17px;
 	padding: 10px;
 	margin-bottom: 10px;

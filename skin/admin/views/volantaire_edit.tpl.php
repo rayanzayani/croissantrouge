@@ -99,16 +99,93 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--inner block start here-->
             <div class="inner-block">
                 <!-- le traitement des données -->
+                <script type="text/javascript">
+
+
+                    function verifLettre ()
+                    {
+                        if (event.keyCode < 97  || event.keyCode > 122)
+                            event.returnValue = false;
+                    }
+
+
+                    function verifPhrase ()
+                    {
+                        if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+                            event.returnValue = false;
+                    }
+
+                    function verifFloat ()
+                    {
+
+                        if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+                            event.returnValue = false;
+                    }
+
+                    function verifInt ()
+                    {
+
+                        if(event.keyCode < 48 || event.keyCode > 57)
+                            event.returnValue = false;
+                    }
+
+
+                    function verifPhonee ()
+                    {
+                        if(event.keyCode < 48 || event.keyCode > 57)
+                            event.returnValue = false;
+                    }
+
+                    function verifMot ()
+                    {
+                        if(event.keyCode == 32)
+                            event.returnValue = false;
+                    }
+
+                    function verifMail()
+
+                    {
+                        a = document.f.email.value;
+                        valide1 = false;
+                        for(var j=1;j<(a.length);j++){
+                            if(a.charAt(j)=='@'){
+                                if(j<(a.length-4)){
+                                    for(var k=j;k<(a.length-2);k++){
+                                        if(a.charAt(k)=='.') valide1=true;
+                                    }
+                                }
+                            }
+                        }
+
+                        if(valide1==false)
+                        {
+                            var errorDiv1 = document.getElementById('error-message1');
+                            errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+                            return false;
+                        }
+                    }
+
+                    function validate()
+                    {
+                        if(verifMail() == false)
+                            return false;
+
+
+
+                        return true;
+                    }
+
+                </script>
                 <form method="post" action="../../volantaire/addVol">
                     <center>
-                        <label>Id du volantaire: {$vol->id}</label><br/>
+                        <label>Informations du volantaires</label><br/>
                         <input class="form-control" type="hidden" name="id" value="{$vol->id}"/><br/>
-                        <input class="form-control" type="number" name="cin" value="{$vol->cin}"/><br/>
-                        <input class="form-control" type="text" name="nom" value="{$vol->nom}"/><br/>
-                        <input class="form-control" type="text" name="prenom" value="{$vol->prenom}"/><br/>
+                        <input class="form-control" type="text" name="cin" maxlength="8" minlength="8" onKeyPress="verifPhonee()" value="{$vol->cin}"/><br/>
+                        <input class="form-control" type="text" name="nom" maxlength="30" onKeyPress="verifPhrase()" value="{$vol->nom}"/><br/>
+                        <input class="form-control" type="text" name="prenom" maxlength="30" onKeyPress="verifPhrase()" value="{$vol->prenom}"/><br/>
                         <input class="form-control" type="date" name="dateNaiss" value="{$vol->dateNaiss}"/><br/>
-                        <input class="form-control" type="text" name="email" value="{$vol->email}"/><br/>
-                        <input class="form-control" type="number" name="tel" value="{$vol->tel}"/><br/>
+                        <input class="form-control" type="email" name="email" value="{$vol->email}"/><br/>
+                        <input class="form-control" type="text" name="tel" maxlength="8" minlength="8" onKeyPress="verifPhonee()" value="{$vol->tel}"/><br/>
                         <input class="btn btn-lg btn-success" type="submit" value="mettre à jour les données"/>
                     </center>
                 </form>

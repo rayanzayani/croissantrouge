@@ -97,16 +97,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
-<div class="inner-block">
+<h3 class="inner-block">
 <!-- le traitement des données --> 
 		<center>
 			<form method="post" action="update">
-				<div>
-					<h3 style="color:green"><?php $msg = Flash::display(); ?>{$msg}</h3>
-				</div>
-				<input type="text" class="form-control" placeholder="login" id="login" name="login"/><br/>
-				<input type="text" class="form-control" placeholder="nouveau mot de passe" id="mdp" name="mdp"/><br/>
-				<input type="submit" class="btn btn-lg btn-success" value="Mettre à jour"/>
+				<h3 style="color:#45C326; text-size:20px; text-align: center">
+					<?php $msg = Flash::display(); ?>{$msg}
+				</h3>
+				<input type="text" class="form-control" placeholder="login" id="login" name="login" title="nom d'utilisateur"/><br/>
+				<input type="text" class="form-control" placeholder="nouveau mot de passe" id="mdp" name="mdp" title="mot de passe"/><br/>
+				<input type="submit" class="btn btn-lg btn-success" value="Mettre à jour" title="mettre à jour les données du compte"/>
 			</form>
 		</center>	
 </div>

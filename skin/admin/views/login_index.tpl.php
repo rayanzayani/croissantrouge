@@ -28,11 +28,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="login-block">
 				<form method="post" action="login">
-					<div>
-						<h4><?php $msg = Flash::display(); ?>{$msg}</h4>
-					</div>
+					<h2 style="color:#FF0C00; text-size:20px; text-align: center">
+						<?php $msg = Flash::display(); ?>{$msg}
+					</h2>
 					<input type="text" id="login" name="login" placeholder="Login" required="">
-					<input type="password" id="mdp" name="mdp" class="lock" placeholder="Mot de passe">
+					<input type="password" id="mdp" name="mdp" class="lock" placeholder="Mot de passe" required="">
 					<div class="forgot-top-grids">
 						<div class="forgot-grid">
 						</div>

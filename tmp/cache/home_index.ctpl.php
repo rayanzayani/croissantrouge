@@ -62,10 +62,8 @@
 	<div class="container">
 		<div class="banner-main">
 			<h1>Bienvenue à notre site web</h1>
-			<p></p>
-		 <div class="bwn">
-			<a href="<?php echo static::$conf['base_url']; ?>#"> Donate now </a>
-		</div>
+			<p>description de la société</p>
+
 		</div>
 	</div>
 </div>
