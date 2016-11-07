@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Administration</title>
+<title>Gestion Categories</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Shoppy Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -80,24 +80,124 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 <!--heder end here-->
 <!-- script-for sticky-nav -->
-		<script>
-		$(document).ready(function() {
-			 var navoffeset=$(".header-main").offset().top;
-			 $(window).scroll(function(){
-				var scrollpos=$(window).scrollTop(); 
-				if(scrollpos >=navoffeset){
-					$(".header-main").addClass("fixed");
-				}else{
-					$(".header-main").removeClass("fixed");
-				}
-			 });
-			 
-		});
-		</script>
+		
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
 <div class="inner-block">
-<!-- le traitement des données --> 
+<!-- le traitement des données -->
+	<script type="text/javascript">
+
+
+		function verifLettre ()
+		{
+			if (event.keyCode < 97  || event.keyCode > 122)
+				event.returnValue = false;
+		}
+
+
+		function verifPhrase ()
+		{
+			if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+				event.returnValue = false;
+		}
+
+		function verifFloat ()
+		{
+
+			if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+				event.returnValue = false;
+		}
+
+		function verifInt ()
+		{
+
+			if(event.keyCode < 48 || event.keyCode > 57)
+				event.returnValue = false;
+		}
+
+
+		function verifPhonee ()
+		{
+			if(event.keyCode < 48 || event.keyCode > 57)
+				event.returnValue = false;
+		}
+
+		function verifMot ()
+		{
+			if(event.keyCode == 32)
+				event.returnValue = false;
+		}
+
+		function verifMail()
+
+		{
+			a = document.f.email.value;
+			valide1 = false;
+			for(var j=1;j<(a.length);j++){
+				if(a.charAt(j)=='@'){
+					if(j<(a.length-4)){
+						for(var k=j;k<(a.length-2);k++){
+							if(a.charAt(k)=='.') valide1=true;
+						}
+					}
+				}
+			}
+
+			if(valide1==false)
+			{
+				var errorDiv1 = document.getElementById('error-message1');
+				errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+				return false;
+			}
+		}
+
+		function validate()
+		{
+			if(verifMail() == false)
+				return false;
+
+
+
+			return true;
+		}
+
+	</script>
+	<form method="post" action="addCat">
+		<h3 style="color:#45C326; text-size:20px; text-align: center">
+			<?php $msg = Flash::display(); ?>{$msg}
+		</h3>
+        <br/><br/><br/>
+		<input class="form-control" type="text" placeholder="nomCategorie"  maxlength="30"  name="nomCategorie" required="" onKeyPress="verifPhrase()" /><br/>
+		<input class="form-control" type="text" placeholder="description"  maxlength="200" name="description" required="" onKeyPress="verifPhrase()" /><br/>
+		<input class="btn btn-lg btn-primary" type="submit" value="Ajouter categorie" title="cliquer ici pour ajouter la categorie" />
+	</form><br/>
+
+	<form method="post" action="">
+		<div class="search-box">
+			<input type="text" placeholder="filtrer selon nom de categorie" name="filtre" id="filtre" /><input type="submit" value=""/>
+		</div>
+	</form><br/>
+
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="10%">Nom du Categorie</th>
+			<th width="10%">Description</th>
+            			<th width="5%">Modifier</th>
+			<th width="5%">Supprimer</th>
+		</tr>
+		</thead>
+		<tbody>
+		{loop="$ev"}
+		<tr>
+			<td>{$value->nomCategorie}</td>
+			<td>{$value->description}</td>
+			<td><center><a href="categorie/edit/{$value->id}" title="Modifier"><img src="edit.png"/></a><center></td>
+			<td><center><a href="categorie/del/{$value->id}" title="Supprimer"><img src="basket.png"/></a><center></td>
+		</tr>
+		{/loop}
+		</tbody>
+	</table>
 </div>
 </div>
 <!--copy rights start here-->
