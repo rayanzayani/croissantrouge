@@ -80,24 +80,137 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 <!--heder end here-->
 <!-- script-for sticky-nav -->
-		<script>
-		$(document).ready(function() {
-			 var navoffeset=$(".header-main").offset().top;
-			 $(window).scroll(function(){
-				var scrollpos=$(window).scrollTop(); 
-				if(scrollpos >=navoffeset){
-					$(".header-main").addClass("fixed");
-				}else{
-					$(".header-main").removeClass("fixed");
-				}
-			 });
-			 
-		});
-		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
 <div class="inner-block">
 <!-- le traitement des données --> 
+
+	<script type="text/javascript">
+    function verifLettre ()
+    {
+        if (event.keyCode < 97  || event.keyCode > 122)
+            event.returnValue = false;
+    }
+
+
+    function verifPhrase ()
+    {
+        if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+            event.returnValue = false;
+    }
+
+    function verifFloat ()
+    {
+
+        if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+    function verifInt ()
+    {
+
+        if(event.keyCode < 48 || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+
+    function verifPhonee ()
+    {
+        if(event.keyCode < 48 || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+    function verifMot ()
+    {
+        if(event.keyCode == 32)
+            event.returnValue = false;
+    }
+
+    function verifMail()
+
+    {
+        a = document.f.email.value;
+        valide1 = false;
+        for(var j=1;j<(a.length);j++){
+            if(a.charAt(j)=='@'){
+                if(j<(a.length-4)){
+                    for(var k=j;k<(a.length-2);k++){
+                        if(a.charAt(k)=='.') valide1=true;
+                    }
+                }
+            }
+        }
+
+        if(valide1==false)
+        {
+            var errorDiv1 = document.getElementById('error-message1');
+            errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+            return false;
+        }
+    }
+
+    function validate()
+    {
+        if(verifMail() == false)
+            return false;
+
+
+
+        return true;
+    }
+
+</script>
+	<h3 style="color:#45C326; text-size:20px; text-align: center">
+			<?php $msg = Flash::display(); ?>{$msg}
+		</h3>
+	<form method="post" action="addDon" name="f" onsubmit="return validate()">
+		<h3 style="color:#45C326; text-size:20px; text-align: center">
+			<?php $msg = Flash::display(); ?>{$msg}
+		</h3>
+        <br/><br/><br/>
+		<input class="form-control" type="text" placeholder="CIN"  maxlength="8" minlength="8"  name="cin" required="" onKeypress="verifInt()" /><br/>
+		<input class="form-control" type="text" placeholder="nom"  maxlength="30" name="nom" required="" onKeypress="verifPhrase()"/><br/>
+		<input class="form-control" type="text" placeholder="prenom"  maxlength="30" name="prenom" required="" onKeypress="verifPhrase()"/><br/>
+		<input class="form-control" type="date" placeholder="date de naissance" name="dateNaiss" required=""/><br/>
+		<input class="form-control" type="text" placeholder="email"  maxlength="50" name="email" required="" onKeypress="verifMail()"/><br/>
+		<input class="form-control" type="text" placeholder="N° téléphone"  maxlength="8" minlength="8" name="tel" required="" onKeypress="verifPhonee()" /><br/>
+		<input class="btn btn-lg btn-primary" type="submit" value="Ajouter donneur" title="cliquer ici pour ajouter un donneur" />
+	</form><br/>
+	<form method="post" action="../donneur/index">
+	<div class="search-box">
+		<input type="text" placeholder="filtrer selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
+	</div>
+	</form><br/>
+
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="10%">Id</th>
+			<th width="10%">CIN</th>
+			<th width="10%">Nom</th>
+			<th width="10%">Prénom</th>
+			<th width="15%">Date de naissance</th>
+			<th width="10%">Email</th>
+			<th width="10%">N° tél</th>
+			<th width="5%">Supprimer</th>
+		</tr>
+		</thead>
+		<tbody>
+		{loop="$don"}
+		<tr>
+			<td>{$value->id}</td>
+			<td>{$value->cin}</td>
+			<td>{$value->nom}</td>
+			<td>{$value->prenom}</td>
+			<td>{$value->dateNaiss}</td>
+			<td>{$value->email}</td>
+			<td>{$value->tel}</td>
+			<td><center><a href="donneur/del/{$value->id}" title="Supprimer"><img src="basket.png"/></a><center></td>
+		</tr>
+		{/loop}
+		</tbody>
+	</table>
+
 </div>
 </div>
 <!--copy rights start here-->
