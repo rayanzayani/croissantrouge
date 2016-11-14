@@ -25,6 +25,83 @@
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+	<script type="text/javascript">
+
+
+		function verifLettre ()
+		{
+			if (event.keyCode < 97  || event.keyCode > 122)
+				event.returnValue = false;
+		}
+
+
+		function verifPhrase ()
+		{
+			if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+				event.returnValue = false;
+		}
+
+		function verifFloat ()
+		{
+
+			if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+				event.returnValue = false;
+		}
+
+		function verifInt ()
+		{
+
+			if(event.keyCode < 48 || event.keyCode > 57)
+				event.returnValue = false;
+		}
+
+
+		function verifPhonee ()
+		{
+			if(event.keyCode < 48 || event.keyCode > 57)
+				event.returnValue = false;
+		}
+
+		function verifMot ()
+		{
+			if(event.keyCode == 32)
+				event.returnValue = false;
+		}
+
+		function verifMail()
+
+		{
+			a = document.f.email.value;
+			valide1 = false;
+			for(var j=1;j<(a.length);j++){
+				if(a.charAt(j)=='@'){
+					if(j<(a.length-4)){
+						for(var k=j;k<(a.length-2);k++){
+							if(a.charAt(k)=='.') valide1=true;
+						}
+					}
+				}
+			}
+
+			if(valide1==false)
+			{
+				var errorDiv1 = document.getElementById('error-message1');
+				errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+				return false;
+			}
+		}
+
+		function validate()
+		{
+			if(verifMail() == false)
+				return false;
+
+
+
+			return true;
+		}
+
+	</script>
 </head>
 <body>
 <!--header start here-->
@@ -69,26 +146,24 @@
 <div class="get">
 	<div class="container">
 		<div class="get-main">
+
 			  <h3>Contact</h3>
 			  <div class="col-md-6 get-left">
 				<form method="post" action="">
-					 <p>Name</p>
-					 <input type="text" placeholder="nom et prénom" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+					 <p>Nom et prénom</p>
+					 <input type="text" placeholder="nom et prénom"  required="" minlength="10" onkeypress="verifPhrase()"/>
 					 <p>Email</p>
-					 <input type="text" placeholder="exemple@yahoo.fr" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+					 <input type="text" placeholder="exemple@yahoo.fr" required="" onkeypress="verifMail()"/>
 					 <p>Telephone</p>
-					 <input type="text" placeholder="xx xxx xxx" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/>
+					 <input type="text" placeholder="xx xxx xxx" required="" maxlength="8" minlength="8" onkeypress="verifInt()"/>
 					 <input type="submit" value="Envoyez">
 				
 			  </div>
 			  <div class="col-md-6 get-right">
 			  	<h4>Message</h4>
-			  	<textarea   placeholder="tapez votre message ici" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}"/> </textarea>
+				  <input type="text"  required="" style="width: 450px; height: 200px"/>
 				</form>
-			  	<h3>Contact us</h3>
-					<p></p>
-					<p></p>
-					<p></p>	
+
 		 	  </div>
 		 	<div class="clearfix"> </div>	
 		</div>
