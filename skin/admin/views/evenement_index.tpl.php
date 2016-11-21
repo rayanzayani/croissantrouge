@@ -46,8 +46,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<span class="prfil-img"><img src="images/logo.png"/></span>
 								  </a> 								
 							</div>
-							<div class="clearfix"> 
-							
+							<div class="clearfix">
+
 							</div>
 							
 						 </div>
@@ -74,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</li>
 								</ul>
 							</div>
-							<div class="clearfix"> </div>				
+							<div class="clearfix"> </div>
 						</div>
 				     <div class="clearfix"> </div>
 				</div>
@@ -94,16 +94,151 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 
 		});
 		</script>
+		   <script type="text/javascript">
+
+
+			   function verifDate(){
+				   var d = new Date(document.getElementById('dateEv')).getFullYear();
+				   var d1 = new Date().getFullYear();
+				   if(d <= d1)
+					   return false;
+			   }
+
+			   function verifLettre ()
+			   {
+				   if (event.keyCode < 97  || event.keyCode > 122)
+					   event.returnValue = false;
+			   }
+
+
+			   function verifPhrase ()
+			   {
+				   if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+					   event.returnValue = false;
+			   }
+
+			   function verifFloat ()
+			   {
+
+				   if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+					   event.returnValue = false;
+			   }
+
+			   function verifInt ()
+			   {
+
+				   if(event.keyCode < 48 || event.keyCode > 57)
+					   event.returnValue = false;
+			   }
+
+
+			   function verifPhonee ()
+			   {
+				   if(event.keyCode < 48 || event.keyCode > 57)
+					   event.returnValue = false;
+			   }
+
+			   function verifMot ()
+			   {
+				   if(event.keyCode == 32)
+					   event.returnValue = false;
+			   }
+
+			   function verifMail()
+
+			   {
+				   a = document.f.email.value;
+				   valide1 = false;
+				   for(var j=1;j<(a.length);j++){
+					   if(a.charAt(j)=='@'){
+						   if(j<(a.length-4)){
+							   for(var k=j;k<(a.length-2);k++){
+								   if(a.charAt(k)=='.') valide1=true;
+							   }
+						   }
+					   }
+				   }
+
+				   if(valide1==false)
+				   {
+					   var errorDiv1 = document.getElementById('error-message1');
+					   errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+					   return false;
+				   }
+			   }
+
+			   function validate()
+			   {
+				   if(verifMail() == false)
+					   return false;
+
+
+
+				   return true;
+			   }
+
+		   </script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
 <div class="inner-block">
-<!-- le traitement des données --> 
+<!-- le traitement des données -->
+	<form method="post" action="addEv">
+		<h3 style="color:#45C326; text-size:20px; text-align: center">
+			<?php $msg = Flash::display(); ?>{$msg}
+		</h3>
+		<input class="form-control" type="text" placeholder="nom de l'événement" onkeypress="verifPhrase()" maxlength="30"  name="nom" required="" /><br/>
+		<input class="form-control" type="text" placeholder="description" onkeypress="verifPhrase()" maxlength="200" name="description" required=""/><br/>
+		<input class="form-control" type="date" placeholder="jj/mm/aa" name="dateEv" id="dateEv"  required=""/><br/>
+		<input class="form-control" type="text" placeholder="url" name="url" required="" /><br/>
+		<input class="form-control" type="text" placeholder="localisation" name="localisation" required="" /><br/>
+		<select class="form-control" name="etat"  required="">
+			<option value="aVenir">A venir</option>
+			<option value="enCours">En cours</option>
+			<option value="termine">terminé</option>
+		</select><br/>
+		<input class="btn btn-lg btn-primary" type="submit" value="Ajouter événement" title="cliquer ici pour ajouter l'événement" />
+	</form><br/>
+
+	<form method="post" action="../evenement/index">
+		<div class="search-box">
+			<input type="text" placeholder="filtrer selon nom" name="filtre" id="filtre" /><input type="submit" value=""/>
+		</div>
+	</form><br/>
+
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="10%">Id</th>
+			<th width="10%">Nom</th>
+			<th width="10%">Description</th>
+			<th width="15%">Date d'événement</th>
+			<th width="5%">Localisation</th>
+			<th width="15%">Date d'ajout</th>
+			<th width="5%">Modifier</th>
+			<th width="5%">Supprimer</th>
+		</tr>
+		</thead>
+		<tbody>
+		{loop="$ev"}
+		<tr>
+			<td>{$value->id}</td>
+			<td>{$value->nom}</td>
+			<td>{$value->description}</td>
+			<td>{$value->dateEv}</td>
+			<td>{$value->localisation}</td>
+			<td>{$value->dateAj}</td>
+			<td><center><a href="evenement/edit/{$value->id}" title="Modifier"><img src="edit.png"/></a><center></td>
+			<td><center><a href="evenement/del/{$value->id}" title="Supprimer"><img src="basket.png"/></a><center></td>
+		</tr>
+		{/loop}
+		</tbody>
+	</table>
 </div>
 </div>
-<!--copy rights start here-->
+<!--copy rights start here
 <div class="copyrights">
 	 <p>© 2016 Croissant rouge. All Rights Reserved</p>
-</div>	
+</div>-->
 <!--COPY rights end here-->
 </div>
 </div>

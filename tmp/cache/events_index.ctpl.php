@@ -70,8 +70,21 @@
 			<div class="clearfix"> </div>
 			</div>
 			<div class="event-top">
-			
-			
+
+				<?php $counter1=-1;  if( isset($ev) && ( is_array($ev) || $ev instanceof Traversable ) && sizeof($ev) ) foreach( $ev as $key1 => $value1 ){ $counter1++; ?>
+				<div class="myEvent">
+					Nom de l'événement:<br/>
+					<p><?php echo $value1->nom; ?></p>
+					Description:<br/>
+					<p><?php echo $value1->description; ?></p>
+					Commence le:<br/>
+					<p><?php echo $value1->dateEv; ?></p>
+					Localisation:<br/>
+					<iframe src="<?php echo $value1->url; ?>"  width="600" height="450" frameborder="0" style="border:0"></iframe><br/>
+					Etat:<br/>
+					<p><?php echo $value1->etat; ?></p>
+				</div>
+				<?php } ?>
 			<div class="clearfix"> </div>
 			</div>
 			<div class="event-top">

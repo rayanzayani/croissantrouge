@@ -42,7 +42,7 @@ class Volantaire_Controller extends InnovAdmin_Controller {
 		$vol->dateNaiss = Input::get ( 'dateNaiss' );
 		$vol->email = Input::get ( 'email' );
 		$vol->tel = Input::get ( 'tel' );
-		$today = new Date();
+		$today = new DateTime();
 		$vol->dateAj = $today;
 
 		$vol->save ();

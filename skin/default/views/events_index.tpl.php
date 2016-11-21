@@ -70,8 +70,21 @@
 			<div class="clearfix"> </div>
 			</div>
 			<div class="event-top">
-			
-			
+
+				{loop="$ev"}
+				<div class="myEvent">
+					Nom de l'événement:<br/>
+					<p>{$value->nom}</p>
+					Description:<br/>
+					<p>{$value->description}</p>
+					Commence le:<br/>
+					<p>{$value->dateEv}</p>
+					Localisation:<br/>
+					<iframe src="{$value->url}"  width="600" height="450" frameborder="0" style="border:0"></iframe><br/>
+					Etat:<br/>
+					<p>{$value->etat}</p>
+				</div>
+				{/loop}
 			<div class="clearfix"> </div>
 			</div>
 			<div class="event-top">

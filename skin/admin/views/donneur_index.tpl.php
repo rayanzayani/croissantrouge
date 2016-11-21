@@ -174,6 +174,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<input class="form-control" type="date" placeholder="date de naissance" name="dateNaiss" required=""/><br/>
 		<input class="form-control" type="text" placeholder="email"  maxlength="50" name="email" required="" onKeypress="verifMail()"/><br/>
 		<input class="form-control" type="text" placeholder="N° téléphone"  maxlength="8" minlength="8" name="tel" required="" onKeypress="verifPhonee()" /><br/>
+		<select class="form-control" title="séléctionner l'identificateur du bien!">
+			{loop="$bien"}
+			<option>
+				{$value->id}
+			</option>
+			{/loop}
+		</select><br/>
 		<input class="btn btn-lg btn-primary" type="submit" value="Ajouter donneur" title="cliquer ici pour ajouter un donneur" />
 	</form><br/>
 	<form method="post" action="../donneur/index">

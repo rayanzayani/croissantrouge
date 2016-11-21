@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--<script src="lib/html5shiv/html5shiv.js"></script>-->
     <!-- Chartinator  -->
     <script src="js/chartinator.js" ></script>
-    <!--geo chart-->
+
 
     <!--skycons-icons-->
     <script src="js/skycons.js"></script>
@@ -38,8 +38,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="left-content">
         <div class="mother-grid-inner">
             <!--header start here-->
+
             <div class="header-main">
-                <center><h1>Informations du site</h1></center>
+                <center><h1>Modification des données du Evenement</h1></center>
                 <div class="header-left">
                     <div class="logo-name">
                         <a href="admin/index">
@@ -78,6 +79,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="clearfix"> </div>
             </div>
+
+
             <!--heder end here-->
             <!-- script-for sticky-nav -->
             <script>
@@ -98,23 +101,115 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!--inner block start here-->
             <div class="inner-block">
                 <!-- le traitement des données -->
-                <form method="post" action="update">
-                    <h3 style="color:#45C326; text-size:20px; text-align: center">
-                        <?php $msg = Flash::display(); ?>{$msg}
-                    </h3>
-                    <input class="form-control" type="text" value="{$info->addresse}" name="addresse" /><br/>
-                    <input class="form-control" type="text" value="{$info->tel}" name="tel" /><br/>
-                    <input class="form-control" type="text" value="{$info->url}" name="url" /><br/>
-                    <input class="btn btn-lg btn-success" type="submit" value="mettre à jour" />
+                <script type="text/javascript">
+
+
+                    function verifLettre ()
+                    {
+                        if (event.keyCode < 97  || event.keyCode > 122)
+                            event.returnValue = false;
+                    }
+
+
+                    function verifPhrase ()
+                    {
+                        if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+                            event.returnValue = false;
+                    }
+
+                    function verifFloat ()
+                    {
+
+                        if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+                            event.returnValue = false;
+                    }
+
+                    function verifInt ()
+                    {
+
+                        if(event.keyCode < 48 || event.keyCode > 57)
+                            event.returnValue = false;
+                    }
+
+
+                    function verifPhonee ()
+                    {
+                        if(event.keyCode < 48 || event.keyCode > 57)
+                            event.returnValue = false;
+                    }
+
+                    function verifMot ()
+                    {
+                        if(event.keyCode == 32)
+                            event.returnValue = false;
+                    }
+
+                    function verifMail()
+
+                    {
+                        a = document.f.email.value;
+                        valide1 = false;
+                        for(var j=1;j<(a.length);j++){
+                            if(a.charAt(j)=='@'){
+                                if(j<(a.length-4)){
+                                    for(var k=j;k<(a.length-2);k++){
+                                        if(a.charAt(k)=='.') valide1=true;
+                                    }
+                                }
+                            }
+                        }
+
+                        if(valide1==false)
+                        {
+                            var errorDiv1 = document.getElementById('error-message1');
+                            errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+                            return false;
+                        }
+                    }
+
+                    function validate()
+                    {
+                        if(verifMail() == false)
+                            return false;
+
+
+
+                        return true;
+                    }
+
+                </script>
+                <form method="post" action="../../evenement/addEv"><br/><br/>
+
+
+
+                    <input class="form-control" type="hidden" name="id" value="{$ev->id}"/><br/>
+                    <input class="form-control" type="text" placeholder="nom de l'événement" onkeypress="verifPhrase()" maxlength="30"  name="nom" value="{$ev->nom}" required="" /><br/>
+                    <input class="form-control" type="text" placeholder="description" onkeypress="verifPhrase()" maxlength="200" name="description" value="{$ev->description}" required=""/><br/>
+                    <input class="form-control" type="date" placeholder="jj/mm/aa" name="dateEv" id="dateEv" value="{$ev->dateEv}" required=""/><br/>
+
+
+
+                    <input class="form-control" type="url" name="url" value="{$ev->url} "required=""/><br/>
+
+
+                    <input class="form-control" type="text" placeholder="localisation" name="localisation" value="{$ev->localisation}" required="" /><br/>
+                    <select class="form-control" name="etat" value="{$ev->etat}"  required="">
+                        <option value="aVenir">A venir</option>
+                        <option value="enCours">En cours</option>
+                        <option value="termine">terminé</option>
+                    </select><br/>
+                    <input class="btn btn-lg btn-primary" type="submit" value="mettre à jour les données" />
                 </form>
+
             </div>
         </div>
-        <!--copy rights start here-->
-        <div class="copyrights">
-            <p>© 2016 Croissant rouge. All Rights Reserved</p>
-        </div>
-        <!--COPY rights end here-->
+
     </div>
+    <!--copy rights start here-->
+    <div class="copyrights">
+        <p>© 2016 Croissant rouge. All Rights Reserved</p>
+    </div>
+    <!--COPY rights end here-->
 </div>
 <!--slider menu-->
 <div class="sidebar-menu">

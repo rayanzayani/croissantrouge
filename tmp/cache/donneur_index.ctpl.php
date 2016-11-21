@@ -27,71 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--<script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/lib/html5shiv/html5shiv.js"></script>-->
      <!-- Chartinator  -->
     <script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/chartinator.js" ></script>
-    <script type="text/javascript">
-        jQuery(function ($) {
 
-            var chart3 = $('#geoChart').chartinator({
-                tableSel: '.geoChart',
-
-                columns: [{role: 'tooltip', type: 'string'}],
-         
-                colIndexes: [2],
-             
-                rows: [
-                    ['China - 2015'],
-                    ['Colombia - 2015'],
-                    ['France - 2015'],
-                    ['Italy - 2015'],
-                    ['Japan - 2015'],
-                    ['Kazakhstan - 2015'],
-                    ['Mexico - 2015'],
-                    ['Poland - 2015'],
-                    ['Russia - 2015'],
-                    ['Spain - 2015'],
-                    ['Tanzania - 2015'],
-                    ['Turkey - 2015']],
-              
-                ignoreCol: [2],
-              
-                chartType: 'GeoChart',
-              
-                chartAspectRatio: 1.5,
-             
-                chartZoom: 1.75,
-             
-                chartOffset: [-12,0],
-             
-                chartOptions: {
-                  
-                    width: null,
-                 
-                    backgroundColor: '#fff',
-                 
-                    datalessRegionColor: '#F5F5F5',
-               
-                    region: 'world',
-                  
-                    resolution: 'countries',
-                 
-                    legend: 'none',
-
-                    colorAxis: {
-                       
-                        colors: ['#679CCA', '#337AB7']
-                    },
-                    tooltip: {
-                     
-                        trigger: 'focus',
-
-                        isHtml: true
-                    }
-                }
-
-               
-            });                       
-        });
-    </script>
-<!--geo chart-->
 
 <!--skycons-icons-->
 <script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/skycons.js"></script>
@@ -144,24 +80,142 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 <!--heder end here-->
 <!-- script-for sticky-nav -->
-		<script>
-		$(document).ready(function() {
-			 var navoffeset=$(".header-main").offset().top;
-			 $(window).scroll(function(){
-				var scrollpos=$(window).scrollTop(); 
-				if(scrollpos >=navoffeset){
-					$(".header-main").addClass("fixed");
-				}else{
-					$(".header-main").removeClass("fixed");
-				}
-			 });
-			 
-		});
-		</script>
 		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
 <div class="inner-block">
 <!-- le traitement des données --> 
+
+	<script type="text/javascript">
+    function verifLettre ()
+    {
+        if (event.keyCode < 97  || event.keyCode > 122)
+            event.returnValue = false;
+    }
+
+
+    function verifPhrase ()
+    {
+        if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+            event.returnValue = false;
+    }
+
+    function verifFloat ()
+    {
+
+        if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+    function verifInt ()
+    {
+
+        if(event.keyCode < 48 || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+
+    function verifPhonee ()
+    {
+        if(event.keyCode < 48 || event.keyCode > 57)
+            event.returnValue = false;
+    }
+
+    function verifMot ()
+    {
+        if(event.keyCode == 32)
+            event.returnValue = false;
+    }
+
+    function verifMail()
+
+    {
+        a = document.f.email.value;
+        valide1 = false;
+        for(var j=1;j<(a.length);j++){
+            if(a.charAt(j)=='@'){
+                if(j<(a.length-4)){
+                    for(var k=j;k<(a.length-2);k++){
+                        if(a.charAt(k)=='.') valide1=true;
+                    }
+                }
+            }
+        }
+
+        if(valide1==false)
+        {
+            var errorDiv1 = document.getElementById('error-message1');
+            errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+            return false;
+        }
+    }
+
+    function validate()
+    {
+        if(verifMail() == false)
+            return false;
+
+
+
+        return true;
+    }
+
+</script>
+	<h3 style="color:#45C326; text-size:20px; text-align: center">
+			<?php $msg = Flash::display(); ?><?php echo $msg; ?>
+		</h3>
+	<form method="post" action="addDon" name="f" onsubmit="return validate()">
+		<h3 style="color:#45C326; text-size:20px; text-align: center">
+			<?php $msg = Flash::display(); ?><?php echo $msg; ?>
+		</h3>
+        <br/><br/><br/>
+		<input class="form-control" type="text" placeholder="CIN"  maxlength="8" minlength="8"  name="cin" required="" onKeypress="verifInt()" /><br/>
+		<input class="form-control" type="text" placeholder="nom"  maxlength="30" name="nom" required="" onKeypress="verifPhrase()"/><br/>
+		<input class="form-control" type="text" placeholder="prenom"  maxlength="30" name="prenom" required="" onKeypress="verifPhrase()"/><br/>
+		<input class="form-control" type="date" placeholder="date de naissance" name="dateNaiss" required=""/><br/>
+		<input class="form-control" type="text" placeholder="email"  maxlength="50" name="email" required="" onKeypress="verifMail()"/><br/>
+		<input class="form-control" type="text" placeholder="N° téléphone"  maxlength="8" minlength="8" name="tel" required="" onKeypress="verifPhonee()" /><br/>
+		<select class="form-control" title="séléctionner l'identificateur du bien!">
+			<option>
+
+			</option>
+		</select><br/>
+		<input class="btn btn-lg btn-primary" type="submit" value="Ajouter donneur" title="cliquer ici pour ajouter un donneur" />
+	</form><br/>
+	<form method="post" action="../donneur/index">
+	<div class="search-box">
+		<input type="text" placeholder="filtrer selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
+	</div>
+	</form><br/>
+
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="10%">Id</th>
+			<th width="10%">CIN</th>
+			<th width="10%">Nom</th>
+			<th width="10%">Prénom</th>
+			<th width="15%">Date de naissance</th>
+			<th width="10%">Email</th>
+			<th width="10%">N° tél</th>
+			<th width="5%">Supprimer</th>
+		</tr>
+		</thead>
+		<tbody>
+		<?php $counter1=-1;  if( isset($don) && ( is_array($don) || $don instanceof Traversable ) && sizeof($don) ) foreach( $don as $key1 => $value1 ){ $counter1++; ?>
+		<tr>
+			<td><?php echo $value1->id; ?></td>
+			<td><?php echo $value1->cin; ?></td>
+			<td><?php echo $value1->nom; ?></td>
+			<td><?php echo $value1->prenom; ?></td>
+			<td><?php echo $value1->dateNaiss; ?></td>
+			<td><?php echo $value1->email; ?></td>
+			<td><?php echo $value1->tel; ?></td>
+			<td><center><a href="<?php echo static::$conf['base_url']; ?>donneur/del/<?php echo $value1->id; ?>" title="Supprimer"><img src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/basket.png"/></a><center></td>
+		</tr>
+		<?php } ?>
+		</tbody>
+	</table>
+
 </div>
 </div>
 <!--copy rights start here-->
@@ -196,6 +250,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li>
 					<a href="<?php echo static::$conf['base_url']; ?>statistique/index"><span>Statistiques</span></a>
 		        </li><br/>
+				  <li>
+					  <a href="<?php echo static::$conf['base_url']; ?>admininfo/index"><span>Infos du site</span></a>
+				  </li><br/>
 				<li>
 					<a href="<?php echo static::$conf['base_url']; ?>login/logout"><span>Déconnexion</span></a>
 		        </li>

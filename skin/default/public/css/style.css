@@ -63,6 +63,13 @@ span.menu {
 	-o-background-size:cover;
 	-ms-background-size:cove
 }
+.myEvent{
+	background-color: #9B242D;
+	text-align: center;
+	color: #FFFFFF;
+	size: 20px;
+	border-style: dashed;
+}
 .banner-main {
 	text-align: center;
 	padding-top:12em;

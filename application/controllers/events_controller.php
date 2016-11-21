@@ -8,6 +8,8 @@ class Events_Controller extends Innov_Controller {
 		$this->set ('socials', $socials);
 		$info = Innov_Model::factory ( 'Info' )->find_one ();
 		$this->set ('info', $info);
+		$ev = Innov_Model::factory('Evenement')->find_many();
+		$this->set('ev',$ev);
 
 	}
 	

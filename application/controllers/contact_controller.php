@@ -8,5 +8,9 @@ class Contact_Controller extends Innov_Controller {
 		$info = Innov_Model::factory ( 'Info' )->find_one ();
 		$this->set ('info', $info);
 	}
+
+	public function action_contact(){
+		
+	}
 	
 }

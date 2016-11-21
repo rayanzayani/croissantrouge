@@ -169,5 +169,141 @@ $(".sidebar-icon").click(function() {
 		<!--//scrolling js-->
 <script src="js/bootstrap.js"> </script>
 <!-- mother grid end here-->
+<div class="inner-block">
+
+		<!-- le traitement des données -->
+		<form method="post" action="addBien">
+			<h3 style="color:#45C326; text-size:20px; text-align: center">
+				<?php $msg = Flash::display(); ?>{$msg}
+			</h3>
+
+			<input class="form-control" type="date" placeholder="jj/mm/aa" name="dateBien" id="dateBien"   required=""/><br/>
+
+
+			<input class="form-control" type="text" placeholder="nom de Bien" onkeypress="verifPhrase()" maxlength="30"  name="nomBien" required="" /><br/>
+
+			<input class="form-control"  OnKeyPress= "verifInt()" type="text" placeholder="quantité bien" name="qteBien" required=""/><br/>
+
+			<input class="btn btn-lg btn-primary" type="submit" value="Ajouter Bien" title="cliquer ici pour ajouter Bien" />
+		</form><br/>
+
+		<form method="post" action="../bien/index">
+			<div class="search-box">
+				<input type="text" placeholder="filtrer selon nom bien" name="filtre" id="filtre" /><input type="submit" value=""/>
+			</div>
+		</form><br/>
+
+
+	<table class="table">
+		<thead>
+		<tr>
+			<th width="15%">Date d'ajout</th>
+
+			<th width="10%">Nom</th>
+			<th width="10%">quantité bien</th>
+
+			<th width="5%">Modifier</th>
+			<th width="5%">Supprimer</th>
+		</tr>
+		</thead>
+		<tbody>
+		{loop="$ev"}
+		<tr>
+
+			<td>{$value->dateBien}</td>
+
+			<td>{$value->nomBien}</td>
+			<td>{$value->qteBien}</td>
+
+			<td><center><a href="bien/edit/{$value->id}" title="Modifier"><img src="edit.png"/></a><center></td>
+			<td><center><a href="bien/del/{$value->id}" title="Supprimer"><img src="basket.png"/></a><center></td>
+		</tr>
+		{/loop}
+		</tbody>
+	</table>
+</div>
+<!--copy rights start here-->
+<footer
+<div class="copyrights">
+	<p>© 2016 Croissant rouge. All Rights Reserved</p>
+</div>
+</foorer>
+<script type="text/javascript">
+
+
+	function verifLettre ()
+	{
+		if (event.keyCode < 97  || event.keyCode > 122)
+			event.returnValue = false;
+	}
+
+
+	function verifPhrase ()
+	{
+		if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+			event.returnValue = false;
+	}
+
+	function verifFloat ()
+	{
+
+		if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+			event.returnValue = false;
+	}
+
+	function verifInt ()
+	{
+
+		if(event.keyCode < 48 || event.keyCode > 57)
+			event.returnValue = false;
+	}
+
+
+	function verifPhonee ()
+	{
+		if(event.keyCode < 48 || event.keyCode > 57)
+			event.returnValue = false;
+	}
+
+	function verifMot ()
+	{
+		if(event.keyCode == 32)
+			event.returnValue = false;
+	}
+
+	function verifMail()
+
+	{
+		a = document.f.email.value;
+		valide1 = false;
+		for(var j=1;j<(a.length);j++){
+			if(a.charAt(j)=='@'){
+				if(j<(a.length-4)){
+					for(var k=j;k<(a.length-2);k++){
+						if(a.charAt(k)=='.') valide1=true;
+					}
+				}
+			}
+		}
+
+		if(valide1==false)
+		{
+			var errorDiv1 = document.getElementById('error-message1');
+			errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+			return false;
+		}
+	}
+
+	function validate()
+	{
+		if(verifMail() == false)
+			return false;
+
+
+
+		return true;
+	}
+
+</script>
 </body>
 </html>                     

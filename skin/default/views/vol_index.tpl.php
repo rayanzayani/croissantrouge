@@ -138,15 +138,15 @@
 <div class="banner">
     <div class="vol" align="center">
         <h1>Inscrivez-vous</h1><br/>
-        <form method="post" action="../vol/ajoutVol">
-            <h3 style="color:#2FEC00; text-size:20px; text-align: center">
+        <form name="f" method="post" action="../vol/ajoutVol" onsubmit="return validate()">
+            <h3 style="color:#0B29C1; text-size:20px; text-align: center">
                 <?php $msg = Flash::display(); ?>{$msg}
             </h3>
             <input type="text" name="cin" id="cin" maxlength="8" minlength="8" placeholder="N° catre d'identité" onKeyPress="verifPhonee()" required="" title="n° de carte d'identité"/><br/>
             <input type="text" name="nom" id="nom" placeholder="nom" maxlength="30" onKeyPress="verifPhrase()" required="" title="votre nom"/><br/>
             <input type="text" name="prenom" id="prenom" maxlength="30" placeholder="prénom" onKeyPress="verifPhrase()" required="" title="votre prénom"/><br/>
-            <input type="date" name="dateNaiss" id="dateNaiss" placeholder="jj/mm/yy" required="" title="votre date de naissance"/><br/>
-            <input type="email" name="email" id="email" placeholder="exemple@yahoo.fr" required="" title="votre addresse mail"/><br/>
+            <input type="date" name="dateNaiss" id="dateNaiss" placeholder="jj/mm/yy" onkeypress="verifDate()" required="" title="votre date de naissance"/><br/>
+            <input type="email" name="email" id="email" placeholder="exemple@yahoo.fr" onkeypress="verifMail()" required="" title="votre addresse mail"/><br/>
             <input type="text" name="tel" id="tel" maxlength="8" minlength="8" placeholder="votre n° de téléphone" onKeyPress="verifPhonee()" required="" title="votre n° de téléphone"/><br/>
             <input type="submit" value="S'inscrire"/>
         </form>

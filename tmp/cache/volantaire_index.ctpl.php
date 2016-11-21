@@ -14,12 +14,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--js-->
 <script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/jquery-2.1.1.min.js"></script> 
 <!--icons-css-->
-<link href="<?php echo static::$conf['base_url']; ?>/skin/admin/public/css/font-awesome.css" rel="stylesheet"> 
-<!--Google Fonts-->
+<link href="<?php echo static::$conf['base_url']; ?>/skin/admin/public/css/font-awesome.css" rel="stylesheet">
+<!--<link href="<?php echo static::$conf['base_url']; ?>/skin/admin/public/css/jquery-confirm.css" rel="stylesheet">
+<link href="<?php echo static::$conf['base_url']; ?>/skin/admin/public/css/jquery-confirm.less" rel="stylesheet">-->
+	<!--Google Fonts-->
 <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
 <!--static chart-->
 <script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/Chart.min.js"></script>
+<script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/jquery-confirm.js"></script>
 <!--//charts-->
 <!-- geo chart -->
     <script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public///cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
@@ -27,11 +30,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--<script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/lib/html5shiv/html5shiv.js"></script>-->
      <!-- Chartinator  -->
     <script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/chartinator.js" ></script>
-    
-
 <!--skycons-icons-->
 <script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/skycons.js"></script>
-<!--//skycons-icons-->
+<link rel="stylesheet" href="<?php echo static::$conf['base_url']; ?>/skin/admin/public/css/jquery.dialogbox.css">
+	<script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public///code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/js/jquery.dialogBox.js"></script>
+
+
 </head>
 <body>	
 <div class="page-container">	
@@ -80,22 +85,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				     <div class="clearfix"> </div>
 				</div>
 <!--heder end here-->
-<!-- script-for sticky-nav -->
-		<script>
-		$(document).ready(function() {
-			 var navoffeset=$(".header-main").offset().top;
-			 $(window).scroll(function(){
-				var scrollpos=$(window).scrollTop(); 
-				if(scrollpos >=navoffeset){
-					$(".header-main").addClass("fixed");
-				}else{
-					$(".header-main").removeClass("fixed");
-				}
-			 });
-			 
-		});
-		</script>
-		<!-- /script-for sticky-nav -->
 <!--inner block start here-->
 <div class="inner-block">
 	<!-- le traitement des données -->
@@ -105,10 +94,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</h3>
 	<form method="post" action="../volantaire/index">
 	<div class="search-box">
-		<input type="text" placeholder="filtrer selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
+		<input type="text" class="form-control" placeholder="filtrer selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
 	</div>
 	</form><br/>
-
+	<div id="dialog"></div>
+	<input type="button" value="click" id="btnDialog">
 	<table class="table">
 		<thead>
 		<tr>
@@ -119,6 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<th width="15%">Date de naissance</th>
 			<th width="10%">Email</th>
 			<th width="10%">N° tél</th>
+			<th width="10%">Date d'ajout</th>
 			<th width="5%">Modifier</th>
 			<th width="5%">Supprimer</th>
 		</tr>
@@ -133,6 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<td><?php echo $value1->dateNaiss; ?></td>
 			<td><?php echo $value1->email; ?></td>
 			<td><?php echo $value1->tel; ?></td>
+			<td><?php echo $value1->dateAj; ?></td>
 			<td><center><a href="<?php echo static::$conf['base_url']; ?>volantaire/edit/<?php echo $value1->id; ?>" title="Modifier"><img src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/edit.png"/></a><center></td>
 			<td><center><a href="<?php echo static::$conf['base_url']; ?>volantaire/del/<?php echo $value1->id; ?>" title="Supprimer"><img src="<?php echo static::$conf['base_url']; ?>/skin/admin/public/basket.png"/></a><center></td>
 		</tr>
