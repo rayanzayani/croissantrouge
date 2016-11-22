@@ -97,8 +97,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<input type="text" class="form-control" placeholder="filtrer selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
 	</div>
 	</form><br/>
-	<div id="dialog"></div>
-	<input type="button" value="click" id="btnDialog">
 	<table class="table">
 		<thead>
 		<tr>
