@@ -94,11 +94,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</h3>
 	<form method="post" action="../volantaire/index">
 	<div class="search-box">
-		<input type="text" class="form-control" placeholder="filtrer selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
+		<input type="text" class="form-control" placeholder="recherche selon email..." name="filtre" id="filtre" /><input type="submit" value=""/>
 	</div>
 	</form><br/>
-	<div id="dialog"></div>
-	<input type="button" value="click" id="btnDialog">
 	<table class="table">
 		<thead>
 		<tr>

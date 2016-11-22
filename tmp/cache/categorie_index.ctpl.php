@@ -85,81 +85,83 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--inner block start here-->
 <div class="inner-block">
 <!-- le traitement des données -->
-<script type="text/javascript">
-    function verifLettre ()
-    {
-        if (event.keyCode < 97  || event.keyCode > 122)
-            event.returnValue = false;
-    }
+	<script type="text/javascript">
 
 
-    function verifPhrase ()
-    {
-        if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
-            event.returnValue = false;
-    }
-
-    function verifFloat ()
-    {
-
-        if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
-            event.returnValue = false;
-    }
-
-    function verifInt ()
-    {
-
-        if(event.keyCode < 48 || event.keyCode > 57)
-            event.returnValue = false;
-    }
+		function verifLettre ()
+		{
+			if (event.keyCode < 97  || event.keyCode > 122)
+				event.returnValue = false;
+		}
 
 
-    function verifPhonee ()
-    {
-        if(event.keyCode < 48 || event.keyCode > 57)
-            event.returnValue = false;
-    }
+		function verifPhrase ()
+		{
+			if ((event.keyCode < 97 && event.keyCode !=32) || event.keyCode > 122)
+				event.returnValue = false;
+		}
 
-    function verifMot ()
-    {
-        if(event.keyCode == 32)
-            event.returnValue = false;
-    }
+		function verifFloat ()
+		{
 
-    function verifMail()
+			if((event.keyCode < 48 && event.keyCode !=46) || event.keyCode > 57)
+				event.returnValue = false;
+		}
 
-    {
-        a = document.f.email.value;
-        valide1 = false;
-        for(var j=1;j<(a.length);j++){
-            if(a.charAt(j)=='@'){
-                if(j<(a.length-4)){
-                    for(var k=j;k<(a.length-2);k++){
-                        if(a.charAt(k)=='.') valide1=true;
-                    }
-                }
-            }
-        }
+		function verifInt ()
+		{
 
-        if(valide1==false)
-        {
-            var errorDiv1 = document.getElementById('error-message1');
-            errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
-            return false;
-        }
-    }
-
-    function validate()
-    {
-        if(verifMail() == false)
-            return false;
+			if(event.keyCode < 48 || event.keyCode > 57)
+				event.returnValue = false;
+		}
 
 
+		function verifPhonee ()
+		{
+			if(event.keyCode < 48 || event.keyCode > 57)
+				event.returnValue = false;
+		}
 
-        return true;
-    }
+		function verifMot ()
+		{
+			if(event.keyCode == 32)
+				event.returnValue = false;
+		}
 
-</script>
+		function verifMail()
+
+		{
+			a = document.f.email.value;
+			valide1 = false;
+			for(var j=1;j<(a.length);j++){
+				if(a.charAt(j)=='@'){
+					if(j<(a.length-4)){
+						for(var k=j;k<(a.length-2);k++){
+							if(a.charAt(k)=='.') valide1=true;
+						}
+					}
+				}
+			}
+
+			if(valide1==false)
+			{
+				var errorDiv1 = document.getElementById('error-message1');
+				errorDiv1.innerHTML = 'Please enter your email address in the format someone@example.com.';
+				return false;
+			}
+		}
+
+		function validate()
+		{
+			if(verifMail() == false)
+				return false;
+
+
+
+			return true;
+		}
+
+	</script>
 	<form method="post" action="addCat">
 		<h3 style="color:#45C326; text-size:20px; text-align: center">
 			<?php $msg = Flash::display(); ?><?php echo $msg; ?>

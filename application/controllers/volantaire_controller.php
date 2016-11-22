@@ -6,8 +6,7 @@ class Volantaire_Controller extends InnovAdmin_Controller {
 		$vol = Innov_Model::factory('Volantaire')->order_by_asc('nom')->find_many();
 		$this->set('vol',$vol);
 		if(!empty($_POST)){
-
-			//$vol = Innov_Model::factory ( 'Volantaire' )->raw_query('SELECT * FROM volantaire  where email LIKE :email', array('email' => Input::get('filtre')))->find_many();
+			
 			$vol = Innov_Model::factory( 'Volantaire' )->where_like('email',$value= Input::get('filtre'))->find_many();
 			$this->set ( 'vol', $vol );
 		}
@@ -43,7 +42,7 @@ class Volantaire_Controller extends InnovAdmin_Controller {
 		$vol->email = Input::get ( 'email' );
 		$vol->tel = Input::get ( 'tel' );
 		$today = new DateTime();
-		$vol->dateAj = $today;
+		$vol->dateAj = $today->format('Y-m-d H:i:s');
 
 		$vol->save ();
 
