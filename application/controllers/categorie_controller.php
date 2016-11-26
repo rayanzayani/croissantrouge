@@ -21,7 +21,6 @@ class Categorie_Controller extends InnovAdmin_Controller {
 			$ev = Innov_Model::factory ( 'Categorie' )->create ();
 		}
 		
-
 		$ev->nomCategorie = Input::get('nomCategorie');
 		$ev->description = Input::get('description');
 

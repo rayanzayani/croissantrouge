@@ -175,9 +175,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<input class="form-control" type="text" placeholder="email"  maxlength="50" name="email" required="" onKeypress="verifMail()"/><br/>
 		<input class="form-control" type="text" placeholder="N° téléphone"  maxlength="8" minlength="8" name="tel" required="" onKeypress="verifPhonee()" /><br/>
 		<select class="form-control" title="séléctionner l'identificateur du bien!">
+			<?php $counter1=-1;  if( isset($bien) && ( is_array($bien) || $bien instanceof Traversable ) && sizeof($bien) ) foreach( $bien as $key1 => $value1 ){ $counter1++; ?>
 			<option>
-
+				<?php echo $value1->id; ?>
 			</option>
+			<?php } ?>
 		</select><br/>
 		<input class="btn btn-lg btn-primary" type="submit" value="Ajouter donneur" title="cliquer ici pour ajouter un donneur" />
 	</form><br/>

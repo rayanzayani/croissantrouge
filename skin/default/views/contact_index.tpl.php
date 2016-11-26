@@ -149,19 +149,22 @@
 
 			  <h3>Contact</h3>
 			  <div class="col-md-6 get-left">
-				<form method="post" action="">
+				<form method="post" action="../contact/contact">
+					<h3 style="color:#0B29C1; text-size:20px; text-align: center">
+						<?php $msg = Flash::display(); ?>{$msg}
+					</h3>
 					 <p>Nom et prénom</p>
-					 <input type="text" placeholder="nom et prénom"  required="" minlength="10" onkeypress="verifPhrase()"/>
+					 <input type="text" nom="nom" placeholder="nom et prénom"  required="" minlength="10" onkeypress="verifPhrase()"/>
 					 <p>Email</p>
-					 <input type="text" placeholder="exemple@yahoo.fr" required="" onkeypress="verifMail()"/>
+					 <input type="email" nom="email" placeholder="exemple@yahoo.fr" required="" onkeypress="verifMail()"/>
 					 <p>Telephone</p>
-					 <input type="text" placeholder="xx xxx xxx" required="" maxlength="8" minlength="8" onkeypress="verifInt()"/>
+					 <input type="text" name="tel" placeholder="xx xxx xxx" required="" maxlength="8" minlength="8" onkeypress="verifInt()"/>
 					 <input type="submit" value="Envoyez">
 				
 			  </div>
 			  <div class="col-md-6 get-right">
 			  	<h4>Message</h4>
-				  <input type="text"  required="" style="width: 450px; height: 200px"/>
+				  <input type="text" nom="message"  required="" style="width: 450px; height: 200px"/>
 				</form>
 
 		 	  </div>
